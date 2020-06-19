@@ -1,3 +1,5 @@
+# Action from: https://github.com/marketplace/actions/s3-sync
+
 name: Upload Website
 
 on:
@@ -16,7 +18,8 @@ jobs:
           node-version: "14.x"
       - run: npm ci
       - run: npm run build:html
-      - uses: jakejarvis/s3-sync-action@master
+      - name: S3 Sync
+        uses: jakejarvis/s3-sync-action@v0.5.1
         with:
           args: --acl public-read --follow-symlinks --delete
         env:
