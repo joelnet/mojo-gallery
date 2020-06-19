@@ -1,0 +1,16 @@
+{
+  "name": "gallery",
+  "version": "1.0.0",
+  "description": "",
+  "author": "Joel Thoms",
+  "license": "MIT",
+  "keywords": [],
+  "scripts": {
+    "build:html": "echo INSERT BUILD HTML HERE",
+    "build:images": "echo INSERT BUILD IMAGES HERE"
+  },
+  "dependencies": {
+    "js-yaml": "^3.14.0",
+    "sharp": "^0.25.3"
+  }
+}

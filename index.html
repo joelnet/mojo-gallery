@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style type="text/css">
+      .toggle:checked + .popup {
+        display: flex;
+      }
+    </style>
+  </head>
+  <body class="text-2xl text-gray-800">
+    <div class="container mx-auto p-4">
+      <h1 class="text-4xl my-4 text-black">Mojo</h1>
+      <div>
+        Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry's standard dummy text ever
+        since the 1500s, when an unknown printer took a galley of type and
+        scrambled it to make a type specimen book. It has survived not only five
+      </div>
+      <div class="flex flex-wrap -mx-2">
+        <div class="flex-none p-1 md:w-1/4 w-1/2">
+          <label for="img1"
+            ><img src="/media/20150121_142454.jpg" class="cursor-pointer"
+          /></label>
+          <input type="checkbox" id="img1" name="img1" class="hidden toggle" />
+          <div
+            class="flex content-center absolute top-0 left-0 h-full w-full bg-black hidden popup"
+          >
+            <div class="flex content-center flex-wrap w-full h-full">
+              <label for="img1"><img src="/media/20150121_142454.jpg" /></label>
+            </div>
+          </div>
+        </div>
+        <div class="flex-none p-1 md:w-1/4 w-1/2">
+          <label for="img2"
+            ><img src="/media/CAM00297.jpg" class="cursor-pointer"
+          /></label>
+          <input type="checkbox" id="img2" name="img2" class="hidden toggle" />
+          <div
+            class="flex content-center absolute top-0 left-0 h-full w-full bg-black hidden popup"
+          >
+            <div class="flex content-center flex-wrap w-full h-full">
+              <label for="img2"><img src="/media/CAM00297.jpg" /></label>
+            </div>
+          </div>
+        </div>
+        <div class="flex-none p-1 md:w-1/4 w-1/2">
+          <img src="/media/CAM00297.jpg" />
+        </div>
+        <div class="flex-none p-1 md:w-1/4 w-1/2">
+          <img src="/media/CAM00297.jpg" />
+        </div>
+      </div>
+
+      <h1 class="text-2xl my-4 text-black">Mojo</h1>
+    </div>
+  </body>
+</html>
