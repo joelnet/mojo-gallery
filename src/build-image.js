@@ -23,7 +23,8 @@ const resizeImage = async (file, outpath, extension, resizeOptions) => {
     )
     const fullOutputPath = `${path.join(
       process.cwd(),
-      `${outpath}/${filePrefix}`
+      outpath,
+      filePrefix
     )}.${extension}`
 
     const image = await sharp(file)
