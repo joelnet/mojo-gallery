@@ -28,7 +28,7 @@ const resizeImage = async (file, outpath, extension, resizeOptions) => {
     )}.${extension}`
 
     const image = await sharp(file)
-    const resized = image.resize(...resizeOptions)
+    const resized = image.rotate().resize(...resizeOptions)
 
     // write file
     mkdirp.sync(path.dirname(fullOutputPath))
