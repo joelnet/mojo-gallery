@@ -5,10 +5,10 @@
   "author": "Joel Thoms",
   "license": "MIT",
   "keywords": [],
-  "type": "module",
+  "xtype": "module",
   "scripts": {
     "build:html": "babel-node src/build-html.js",
-    "build:images": "node src/build-image.js",
+    "build:images": "babel-node src/build-image.js",
     "lint": "eslint"
   },
   "dependencies": {
