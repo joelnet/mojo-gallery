@@ -28,9 +28,19 @@
       <h2 class="text-2xl my-4 text-black">Subtitle</h2>
       <div class="flex flex-wrap -mx-2">
         <div class="flex-none p-1 md:w-1/4 w-1/2">
-          <label for="img1"
-            ><img src="/media/IMG_20191114_232257.jpg" class="cursor-pointer"
-          /></label>
+          <label for="img1">
+            <picture class="cursor-pointer">
+              <source
+                srcset="/public/images/webp/IMG_20191114_232257.webp"
+                type="image/webp"
+              />
+              <source
+                srcset="public/images/jpg/IMG_20191114_232257.jpg"
+                type="image/jpeg"
+              />
+              <img src="/public/images/jpg/IMG_20191114_232257.jpg" />
+            </picture>
+          </label>
           <input type="checkbox" id="img1" name="img1" class="hidden toggle" />
           <div
             class="flex content-center absolute top-0 left-0 h-full w-full bg-black hidden popup"
@@ -38,11 +48,19 @@
             <div
               class="flex content-center justify-center flex-wrap w-full h-full"
             >
-              <label for="img1"
-                ><img
-                  src="/media/IMG_20191114_232257.jpg"
-                  class="max-w-full max-h-screen"
-              /></label>
+              <label for="img1">
+                <picture class="cursor-pointer max-w-full max-h-screen">
+                  <source
+                    srcset="/public/images/webp/IMG_20191114_232257.webp"
+                    type="image/webp"
+                  />
+                  <source
+                    srcset="/public/images/jpg/IMG_20191114_232257.jpg"
+                    type="image/jpeg"
+                  />
+                  <img src="/public/images/jpg/IMG_20191114_232257.jpg" />
+                </picture>
+              </label>
             </div>
           </div>
         </div>
