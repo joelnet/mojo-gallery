@@ -7,10 +7,23 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Launch Program",
+      "name": "Build Images",
       "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}/src/build-image.js",
-      "runtimeArgs": ["--harmony-top-level-await"]
+      "program": "${workspaceFolder}/src/build-image.js"
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Build HTML",
+      "preLaunchTask": "npm: build",
+      "program": "${workspaceFolder}/dist/build-html.js",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "sourceMaps": true,
+      "runtimeArgs": ["--nolazy"],
+      "console": "integratedTerminal",
+      "env": {
+        "NODE_ENV": "development"
+      }
     }
   ]
 }

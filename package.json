@@ -5,8 +5,10 @@
   "author": "Joel Thoms",
   "license": "MIT",
   "keywords": [],
-  "xtype": "module",
   "scripts": {
+    "clean": "rimraf dist/",
+    "prebuild": "npm run clean",
+    "build": "babel src/ -d dist/",
     "build:html": "babel-node src/build-html.js",
     "build:images": "babel-node src/build-image.js",
     "lint": "eslint"
@@ -14,8 +16,6 @@
   "dependencies": {
     "glob": "^7.1.6",
     "mkdirp": "^1.0.4",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
     "sharp": "^0.25.4"
   },
   "devDependencies": {
@@ -27,6 +27,8 @@
     "eslint": "^7.3.1",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
-    "prettier": "^2.0.5"
+    "eslint-plugin-react": "^7.20.0",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2"
   }
 }
