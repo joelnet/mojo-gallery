@@ -15,7 +15,10 @@
   },
   "dependencies": {
     "glob": "^7.1.6",
+    "js-yaml": "^3.14.0",
     "mkdirp": "^1.0.4",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
     "sharp": "^0.25.4"
   },
   "devDependencies": {
