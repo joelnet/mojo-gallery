@@ -41,7 +41,5 @@ const onScroll = () => {
   })
 }
 
-window.addEventListener('load', () => {
-  setTimeout(() => onLoad, 1000)
-})
+window.addEventListener('load', onLoad)
 window.addEventListener('scroll', onScroll)

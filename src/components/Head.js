@@ -13,6 +13,19 @@ export const Head = ({ title, children }) => (
     .toggle:checked + .popup {
       display: flex;
     }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-gap: 0.5rem;
+    }
+    .gallery source, .gallery img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+    .gallery source[data-srcset], .gallery img[data-src] {
+      height: 150px
+    }
   `}</style>
     {children}
     <script src="/main.js"></script>

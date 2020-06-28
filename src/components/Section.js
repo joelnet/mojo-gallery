@@ -1,13 +1,16 @@
 import React from 'react'
+import { Gallery } from './Gallery'
 import { Picture } from './Picutre'
+import { Subtitle } from './Subtitle'
+import { GalleryImageContainer } from './GalleryImageContainer'
 
 export const Section = ({ title, content, images }) => (
   <>
-    <h2 className="text-3xl my-4 text-black">{title}</h2>
+    <Subtitle>{title}</Subtitle>
     {content && <div>{content}</div>}
-    <div className="flex flex-wrap -mx-2">
+    <Gallery>
       {images.jpgt.files.map((jpgt, index) => (
-        <div key={`${jpgt}-${index}`} className="flex-none p-1 md:w-1/4 w-1/2">
+        <GalleryImageContainer key={`${jpgt}-${index}`}>
           <label htmlFor={`${jpgt}-${index}`}>
             <Picture
               className="cursor-pointer"
@@ -32,8 +35,8 @@ export const Section = ({ title, content, images }) => (
               </label>
             </div>
           </div>
-        </div>
+        </GalleryImageContainer>
       ))}
-    </div>
+    </Gallery>
   </>
 )
