@@ -15,5 +15,6 @@ export const Head = ({ title, children }) => (
     }
   `}</style>
     {children}
+    <script src="/main.js"></script>
   </head>
 )

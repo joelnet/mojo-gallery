@@ -8,13 +8,21 @@
       "type": "node",
       "request": "launch",
       "name": "Build Images",
-      "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}/src/build-image.js"
+      "preLaunchTask": "npm: build",
+      "program": "${workspaceFolder}/dist/build-image.js",
+      "outFiles": ["${workspaceFolder}/dist/**/*.js"],
+      "sourceMaps": true,
+      "runtimeArgs": ["--nolazy"],
+      "console": "integratedTerminal",
+      "env": {
+        "NODE_ENV": "development"
+      }
     },
     {
       "type": "node",
       "request": "launch",
       "name": "Build HTML",
+      "skipFiles": ["<node_internals>/**"],
       "preLaunchTask": "npm: build",
       "program": "${workspaceFolder}/dist/build-html.js",
       "outFiles": ["${workspaceFolder}/dist/**/*.js"],

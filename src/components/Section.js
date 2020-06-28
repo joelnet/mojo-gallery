@@ -6,13 +6,13 @@ export const Section = ({ title, content, images }) => (
     <h2 className="text-3xl my-4 text-black">{title}</h2>
     {content && <div>{content}</div>}
     <div className="flex flex-wrap -mx-2">
-      {images.jpgt.map((jpgt, index) => (
+      {images.jpgt.files.map((jpgt, index) => (
         <div key={`${jpgt}-${index}`} className="flex-none p-1 md:w-1/4 w-1/2">
           <label htmlFor={`${jpgt}-${index}`}>
             <Picture
               className="cursor-pointer"
               jpg={jpgt}
-              webp={images.webpt[index]}
+              webp={images.webpt.files[index]}
             />
           </label>
           <input
@@ -25,9 +25,9 @@ export const Section = ({ title, content, images }) => (
             <div className="flex content-center justify-center flex-wrap w-full h-full">
               <label htmlFor={`${jpgt}-${index}`}>
                 <Picture
-                  className="aaaa cursor-pointer max-w-full max-h-screen"
-                  jpg={images.jpg[index]}
-                  webp={images.webp[index]}
+                  className="cursor-pointer max-w-screen max-h-screen"
+                  jpg={images.jpg.files[index]}
+                  webp={images.webp.files[index]}
                 />
               </label>
             </div>
