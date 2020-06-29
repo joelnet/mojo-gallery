@@ -5,10 +5,16 @@ description: >
   room to room and always demanded attention. If I didn't give him enough
   attention he would let me know my biting me.
 sections:
+  top:
+    title: Has to be Right on Top and in My Face
+    content: >
+      Whenever I finished worked and hopped on the couch, this little guy would
+      always have to be right on top of me all up in my face.
   buddha:
     title: The Buddha
     content: >
       A common characteristic of Scottish Folds is to sit like a Buddha.
+      And Mojo was no exception. He loved to sit on his little cat butt!
   people:
     title: Loves People
   costume:
@@ -23,7 +29,5 @@ sections:
     title: Siblings
   snuggle:
     title: Loves to Snuggle
-  top:
-    title: Has to be Right on Top and in My Face
-  ".":
+  '.':
     title: More Photos

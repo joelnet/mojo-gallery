@@ -18,12 +18,12 @@ export const Head = ({ title, children }) => (
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       grid-gap: 0.5rem;
     }
-    .gallery source, .gallery img {
+    .gallery .thumb source, .gallery .thumb img {
       height: 100%;
       width: 100%;
-      object-fit: cover;
+      object-fit: cover; 
     }
-    .gallery source[data-srcset], .gallery img[data-src] {
+    .gallery .thumb source[data-srcset], .gallery .thumb img[data-src] {
       height: 150px
     }
   `}</style>

@@ -11,15 +11,8 @@ const showImage = (image) => {
   }
 }
 
-const showImages = () => {
-  const images = document.querySelectorAll('img, source')
-  Array.from(images).map(showImage)
-}
-
 const onLoad = () => {
-  console.log('loaded')
   onScroll()
-  //showImages()
 }
 
 const onScroll = () => {
@@ -31,12 +24,9 @@ const onScroll = () => {
   Array.from(elements).map((element) => {
     const top = element.getBoundingClientRect().top
 
-    if (top === 0) {
-      console.log(element)
-      console.log(element.getBoundingClientRect())
-    } else if (top < scrollPosition) {
+    if (top !== 0 && top < scrollPosition) {
       showImage(element)
-      //console.log(`loading image ${element.srcset || element.src}`)
+      console.debug(`loading image ${element.srcset || element.src}`)
     }
   })
 }

@@ -1,5 +1,5 @@
 import React from 'react'
 
-export const GalleryImageContainer = ({ children }) => (
-  <div className="img-container">{children}</div>
+export const GalleryImageContainer = ({ children, className = '' }) => (
+  <div className={`img-container ${className}`}>{children}</div>
 )

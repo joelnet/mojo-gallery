@@ -1,19 +1,20 @@
 import React from 'react'
 import { Gallery } from './Gallery'
+import { GalleryImageContainer } from './GalleryImageContainer'
 import { Picture } from './Picutre'
 import { Subtitle } from './Subtitle'
-import { GalleryImageContainer } from './GalleryImageContainer'
+import { TextBlock } from './TextBlock'
 
 export const Section = ({ title, content, images }) => (
   <>
     <Subtitle>{title}</Subtitle>
-    {content && <div>{content}</div>}
+    {content && <TextBlock>{content}</TextBlock>}
     <Gallery>
       {images.jpgt.files.map((jpgt, index) => (
         <GalleryImageContainer key={`${jpgt}-${index}`}>
           <label htmlFor={`${jpgt}-${index}`}>
             <Picture
-              className="cursor-pointer"
+              className="cursor-pointer thumb"
               jpg={jpgt}
               webp={images.webpt.files[index]}
             />
@@ -31,6 +32,7 @@ export const Section = ({ title, content, images }) => (
                   className="cursor-pointer max-w-screen max-h-screen"
                   jpg={images.jpg.files[index]}
                   webp={images.webp.files[index]}
+                  loading="lazy"
                 />
               </label>
             </div>
