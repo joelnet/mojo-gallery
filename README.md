@@ -1,6 +1,6 @@
 # Custom Static Site Gallery for Mojo
 
-Deploys to: http://mojo.joel.net
+Deploys to: https://mojo.joel.net
 
 ## Live Coding
 
