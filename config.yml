@@ -1,6 +1,6 @@
 images:
   full: [1200, 1200, { fit: 'inside' }]
-  thumb: [180, null]
+  thumb: [200, null]
 title: Mojo (July 14, 2009 - May 23, 2020)
 description: >
   Mojo was the friendliest cat. He loved new people and would come and
