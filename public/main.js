@@ -15,20 +15,19 @@ const onLoad = () => {
   onScroll()
 }
 
-const onScroll = () => {
-  const scrollPosition =
-    window.scrollY +
-    (window.innerHeight || document.documentElement.clientHeight)
+const getScrollPosition = () =>
+  window.scrollY + (window.innerHeight || document.documentElement.clientHeight)
 
-  const elements = document.querySelectorAll(
-    'source[data-srcset],img[data-src]'
-  )
-  Array.from(elements).map((element) => {
+const getHiddenImages = () =>
+  Array.from(document.querySelectorAll('source[data-srcset],img[data-src]'))
+
+const onScroll = () => {
+  const elements = getHiddenImages()
+  elements.map((element) => {
     const top = element.getBoundingClientRect().top
 
-    if (top !== 0 && top < scrollPosition) {
+    if (top > 0 && top < getScrollPosition()) {
       showImage(element)
-      console.debug(`loading image ${element.srcset || element.src}`)
     }
   })
 }
