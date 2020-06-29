@@ -20,7 +20,9 @@ const onScroll = () => {
     window.scrollY +
     (window.innerHeight || document.documentElement.clientHeight)
 
-  const elements = document.querySelectorAll('source[data-srcset')
+  const elements = document.querySelectorAll(
+    'source[data-srcset],img[data-src]'
+  )
   Array.from(elements).map((element) => {
     const top = element.getBoundingClientRect().top
 

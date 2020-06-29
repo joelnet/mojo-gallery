@@ -5,12 +5,9 @@ import mkdirp from 'mkdirp'
 import path from 'path'
 import sharp from 'sharp'
 import { promisify } from 'util'
+import { config } from './lib/config'
 
 const globp = promisify(glob)
-const resizeOptions = {
-  full: [1200, 1200, { fit: 'inside' }],
-  thumb: [320, null],
-}
 const mediaPath = path.join(process.cwd(), 'media')
 const metaFilePath = path.join(process.cwd(), 'public/metadata.json')
 
@@ -58,10 +55,10 @@ const main = async () => {
 
   for (const file of files) {
     const metadatas = await Promise.all([
-      resizeImage(file, 'public/images/jpg', 'jpg', resizeOptions.full),
-      resizeImage(file, 'public/images/webp', 'webp', resizeOptions.full),
-      resizeImage(file, 'public/images/jpgt', 'jpg', resizeOptions.thumb),
-      resizeImage(file, 'public/images/webpt', 'webp', resizeOptions.thumb),
+      resizeImage(file, 'public/images/jpg', 'jpg', config.images.full),
+      resizeImage(file, 'public/images/webp', 'webp', config.images.full),
+      resizeImage(file, 'public/images/jpgt', 'jpg', config.images.thumb),
+      resizeImage(file, 'public/images/webpt', 'webp', config.images.thumb),
     ])
 
     Object.assign(meta, { [metadatas[2].file]: metadatas[2] })

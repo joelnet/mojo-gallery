@@ -12,11 +12,6 @@ const getFiles = (type, section) => {
     .map((file) => file.substring(publicPath.length + 1))
 }
 
-// const getDimensions = (file) =>
-//   sharp(file)
-//     .metadata()
-//     .then(({ height, width }) => ({ height, width }))
-
 export const SectionManager = ({ sections }) =>
   Object.entries(sections).map(([key, section]) => {
     const images = {
