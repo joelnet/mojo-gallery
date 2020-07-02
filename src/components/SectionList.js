@@ -12,7 +12,7 @@ const getFiles = (type, section) => {
     .map((file) => file.substring(publicPath.length + 1))
 }
 
-export const SectionManager = ({ sections }) =>
+export const SectionList = ({ sections }) =>
   Object.entries(sections).map(([key, section]) => {
     const images = {
       jpg: { files: getFiles('jpg', key) },

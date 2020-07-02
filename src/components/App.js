@@ -5,7 +5,7 @@ import { Body } from './Body'
 import { Container } from './Container'
 import { Title } from './Title'
 import { TextBlock } from './TextBlock'
-import { SectionManager } from './SectionManager'
+import { SectionList } from './SectionList'
 
 export const App = ({ title, description, sections }) => (
   <Document>
@@ -14,7 +14,7 @@ export const App = ({ title, description, sections }) => (
       <Container>
         <Title>{title}</Title>
         <TextBlock>{description}</TextBlock>
-        <SectionManager sections={sections} />
+        <SectionList sections={sections} />
       </Container>
     </Body>
   </Document>
