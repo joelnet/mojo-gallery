@@ -8,7 +8,7 @@ import { TextBlock } from './TextBlock'
 export const Section = ({ title, content, images }) => (
 	<>
 		<Subtitle>{title}</Subtitle>
-		{content && <TextBlock>{content}</TextBlock>}
+		<TextBlock>{content}</TextBlock>
 		<Gallery>
 			{images.jpgt.files.map((jpgt, index) => (
 				<GalleryImageContainer key={`${jpgt}-${index}`}>
