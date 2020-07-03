@@ -61,8 +61,10 @@ const main = async () => {
       resizeImage(file, 'public/images/webpt', 'webp', config.images.thumb),
     ])
 
-    Object.assign(meta, { [metadatas[2].file]: metadatas[2] })
-    Object.assign(meta, { [metadatas[3].file]: metadatas[3] })
+    Object.assign(meta, {
+      [metadatas[2].file]: metadatas[2],
+      [metadatas[3].file]: metadatas[3],
+    })
   }
 
   fs.writeFileSync(metaFilePath, JSON.stringify(meta))
