@@ -1,8 +1,6 @@
 ---
 parser: babel-eslint
 rules:
-  no-undef: error
-  no-unused-vars: error
   react/prop-types: off
 env:
   es6: true
