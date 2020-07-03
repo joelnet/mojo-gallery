@@ -8,14 +8,14 @@ import { TextBlock } from './TextBlock'
 import { SectionList } from './SectionList'
 
 export const App = ({ title, description, sections }) => (
-  <Document>
-    <Head title={title} />
-    <Body>
-      <Container>
-        <Title>{title}</Title>
-        <TextBlock>{description}</TextBlock>
-        <SectionList sections={sections} />
-      </Container>
-    </Body>
-  </Document>
+	<Document>
+		<Head title={title} />
+		<Body>
+			<Container>
+				<Title>{title}</Title>
+				<TextBlock>{description}</TextBlock>
+				<SectionList sections={sections} />
+			</Container>
+		</Body>
+	</Document>
 )

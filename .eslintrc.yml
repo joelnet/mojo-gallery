@@ -1,4 +1,5 @@
 ---
+parser: babel-eslint
 rules:
   no-undef: error
   no-unused-vars: error
@@ -14,6 +15,9 @@ parserOptions:
     jsx: true
 plugins:
   - react
+settings:
+  react:
+    version: detect
 extends:
   - eslint:recommended
   - plugin:react/recommended
