@@ -4,10 +4,12 @@ import mkdirp from 'mkdirp'
 import path from 'path'
 import sharp from 'sharp'
 import { promisify } from 'util'
-import { config } from './lib/config'
+import { config } from './config'
+import cluster from 'cluster'
 
 const globp = promisify(glob)
 const mediaPath = path.join(process.cwd(), 'media')
+const forks = 3 //require('os').cpus().length
 
 /**
  * Resize and Save Image
@@ -28,20 +30,20 @@ const resizeImage = async (file, outpath, extension, resizeOptions) => {
 		const image = await sharp(file)
 		const resized = image.rotate().resize(...resizeOptions)
 
-		// write file
 		mkdirp.sync(path.dirname(fullOutputPath))
 		await resized.toFile(fullOutputPath)
-		console.log(`saving file: ${fullOutputPath}`)
+		console.log(`[${process.pid}] saving file: ${fullOutputPath}`)
 	} catch (err) {
-		console.error(`Exception for file: ${file}`)
+		console.error(`[${process.pid}] Exception for file: ${file}`)
 		console.error(err)
 	}
 }
 
 const main = async () => {
 	const files = await globp(`${mediaPath}/**/*.jpg`)
+	const clusterFiles = files.filter((_, index) => index % forks === 0)
 
-	for (const file of files) {
+	for (const file of clusterFiles) {
 		await Promise.all([
 			resizeImage(file, 'public/images/jpg', 'jpg', config.images.full),
 			resizeImage(file, 'public/images/webp', 'webp', config.images.full),
@@ -51,9 +53,18 @@ const main = async () => {
 	}
 }
 
-main()
-	.then(() => process.exit(0))
-	.catch((err) => {
-		console.error(err)
-		process.exit(1)
-	})
+if (cluster.isMaster) {
+	console.log(`[${process.pid}] I am master`)
+
+	for (let i = 0; i < forks; i++) {
+		cluster.fork()
+	}
+} else {
+	console.log(`[${process.pid}] I am worker ${cluster.worker.id}`)
+	main()
+		.then(() => process.exit(0))
+		.catch((err) => {
+			console.error(err)
+			process.exit(1)
+		})
+}
