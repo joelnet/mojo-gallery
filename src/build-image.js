@@ -9,7 +9,7 @@ import cluster from 'cluster'
 
 const globp = promisify(glob)
 const mediaPath = path.join(process.cwd(), 'media')
-const forks = 3 //require('os').cpus().length
+const forks = require('os').cpus().length
 
 /**
  * Resize and Save Image
@@ -32,16 +32,18 @@ const resizeImage = async (file, outpath, extension, resizeOptions) => {
 
 		mkdirp.sync(path.dirname(fullOutputPath))
 		await resized.toFile(fullOutputPath)
-		console.log(`[${process.pid}] saving file: ${fullOutputPath}`)
+		console.log(`[${cluster.worker.id}] saving file: ${fullOutputPath}`)
 	} catch (err) {
-		console.error(`[${process.pid}] Exception for file: ${file}`)
+		console.error(`[${cluster.worker.id}] Exception for file: ${file}`)
 		console.error(err)
 	}
 }
 
 const main = async () => {
 	const files = await globp(`${mediaPath}/**/*.jpg`)
-	const clusterFiles = files.filter((_, index) => index % forks === 0)
+	const clusterFiles = files.filter(
+		(_, index) => index % forks === cluster.worker.id - 1
+	)
 
 	for (const file of clusterFiles) {
 		await Promise.all([
